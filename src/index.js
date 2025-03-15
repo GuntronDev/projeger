@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain} = require('electron');
 const path = require('node:path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -13,7 +13,8 @@ const createWindow = () => {
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
+      nodeIntegration: false,
+      contextIsolation: true
     },
   });
 
@@ -27,6 +28,10 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
 
+  ipcMain.handle('open-dialog', async () => {
+      await dialog.showOpenDialog({properties: ['openFile']});
+  });
+  
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on('activate', () => {
@@ -34,6 +39,7 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
+
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
