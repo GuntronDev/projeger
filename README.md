@@ -2,21 +2,21 @@ Very simple electron-svelte setup. You can you this for your small project, or t
 
 Everything has been setup, so you can just start coding out of the box!
 
-#SETUP:
+# SETUP:
 
 clone git repo
 
-##run vite+electron
+## run vite+electron
 ```
 npm run dev
-```bash
+```
 
-##run just vite
+## run just vite
 ```
 npm run dev-vite
-```bash
+```
 
 #run just electron
 ```
 npm run dev-electron
-```bash
+```
