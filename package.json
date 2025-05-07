@@ -1,0 +1,22 @@
+{
+  "name": "electron-svelte-setup",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/electron/index.cjs",
+  "scripts": {
+    "dev-svelte": "vite",
+    "dev-electron": "electron .",
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "concurrently": "^9.1.2",
+    "electron": "^36.1.0",
+    "svelte": "^5.28.1",
+    "vite": "^6.3.5",
+    "wait-on": "^8.0.3"
+  }
+}
