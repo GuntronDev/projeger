@@ -16,7 +16,7 @@ npm run dev
 npm run dev-vite
 ```
 
-#run just electron
+## run just electron
 ```
 npm run dev-electron
 ```
