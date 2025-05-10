@@ -28,5 +28,5 @@
    * Use global.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/electron/index.cjs", "src/electron/index.cjs", "src/electron/fileHandler.cjs", "src/electron/preload.cjs", "src/electron/ipcHandlers.cjs"]
+  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/electron/index.cjs", "src/electron/index.cjs", "src/electron/fileHandler.cjs", "src/electron/preload.cjs", "src/electron/ipcHandlers.cjs", "src/electron/renderer.cjs"]
 }
