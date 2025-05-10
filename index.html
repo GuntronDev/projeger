@@ -1,13 +1,23 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Svelte</title>
+    <title>Projeger</title>
+    <link rel="stylesheet" href="./src/app.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="container">
+      <aside>
+        <button class="button is-outlined is-link mt-6">Create project</button>
+        <button class="button is-outlined is-link mt-6" id="select-project">Select project</button>
+        <button class="button is-outlined is-link mt-6">TO-DO List</button>
+
+      </aside>
+      <main>
+        <div class="app"></div>
+      </main>
+    </div>
   </body>
+  <script src="./src/electron/renderer.cjs"></script>
 </html>
