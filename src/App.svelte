@@ -5,11 +5,9 @@
 
 </script>
 
-<div>
-    {#if $currentView === "arch"}
-        <Arch />
-    
-    {:else if $currentView === "todo"}
-        <Todo/>
-    {/if}
-</div>
+{#if $currentView === "arch"}
+    <Arch />
+
+{:else if $currentView === "todo"}
+    <Todo/>
+{/if}

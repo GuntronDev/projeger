@@ -28,3 +28,7 @@ body > div#container > aside > button{
 main{
   width: 100%;
 }
+#app{
+  width: 100%;
+  height: 100%;
+}
