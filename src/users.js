@@ -8,9 +8,12 @@ class User{
 }
 
 class Admin extends User{
-    WriteConfig(){
-
+    constructor(data){
+        super(data);
+    }
+    WriteConfig(newdata){
+        this.data = newdata;
     }
 }
 
-module.exports = {User, Admin};
+export{User,Admin};

@@ -1,6 +1,6 @@
 const {dialog} = require("electron")
 const fs = require("fs/promises");
-//const {User, Admin} = require("../users.js");
+const {User, Admin} = require("../users.js");
 
 async function SelectFile() {
     const { filePaths} = await dialog.showOpenDialog({
@@ -11,16 +11,25 @@ async function SelectFile() {
   try{
     const stringFileContent = await fs.readFile(filePaths[0], "utf-8");
     const jsonFileContent = JSON.parse(stringFileContent);
-    console.log(jsonFileContent);
 
-    /*if(jsonFileContent.metadata.adminID == 123456798){
+    if(jsonFileContent.metadata.adminID == 123){
         const newAdmin = new Admin(jsonFileContent);
+        newAdmin.ReadConfig();
+        newAdmin.WriteConfig(
+            `{
+  "metadata": {
+    "uniqueID": 713473212848351,
+    "currentTime": "2025-05-12T22:49:04.423Z",
+    "adminID": 0
+  },
+  "contentData": {}
+}`);
         newAdmin.ReadConfig();
     }
     else{
         const newUser = new User(jsonFileContent);
         newUser.ReadConfig();
-    }*/
+    }
 
   }
   catch(err){
