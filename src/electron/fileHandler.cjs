@@ -15,14 +15,20 @@ async function SaveProject() {
     });
 
     if(filePath){
-        //uniqueID for debuging
-        //small scale solution -> unique id not promised
-        //extremely unlikely to not create unique id
-        const uniqueID = Math.floor(Math.random() * 1000000000000000);
+        const data = {
+            metadata: {
+                //uniqueID for debuging
+                //small scale solution -> unique id not promised
+                //extremely unlikely to not create unique id
+                uniqueID: Math.floor(Math.random() * 1000000000000000),
+                currentTime: new Date().toISOString(),
+                adminID: 0
+            },
+            contentData: {
 
-        const data = { 
-            uniqueID,
-            currentTime: new Date().toISOString() };
+            }
+        };
+
         await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
     }
 }
