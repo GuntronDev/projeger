@@ -15,7 +15,14 @@ async function SaveProject() {
     });
 
     if(filePath){
-        const data = { currentTime: new Date().toISOString() };
+        //uniqueID for debuging
+        //small scale solution -> unique id not promised
+        //extremely unlikely to not create unique id
+        const uniqueID = Math.floor(Math.random() * 1000000000000000);
+
+        const data = { 
+            uniqueID,
+            currentTime: new Date().toISOString() };
         await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
     }
 }
