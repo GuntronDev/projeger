@@ -14,6 +14,7 @@ async function SelectFile() {
 
     if(jsonFileContent.metadata.adminID == 123){
         const newAdmin = new Admin(jsonFileContent);
+        //test of admin
         newAdmin.ReadConfig();
         newAdmin.WriteConfig(
             `{
