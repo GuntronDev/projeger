@@ -1,8 +1,9 @@
 const { ipcMain } = require("electron");
-const {SelectFile } = require("./fileHandler.cjs");
+const {SelectFile, SaveProject } = require("./fileHandler.cjs");
 
 function SetupICP(){
-    return ipcMain.handle("SelectFile", SelectFile);
+    ipcMain.handle("SelectFile", SelectFile);
+    ipcMain.handle("SaveProject", SaveProject)
 }
 
 module.exports = {SetupICP};
