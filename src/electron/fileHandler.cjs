@@ -1,8 +1,32 @@
 const {dialog} = require("electron")
-const fs = require("fs").promises;
+const fs = require("fs/promises");
+//const {User, Admin} = require("../users.js");
 
 async function SelectFile() {
-    return await dialog.showOpenDialog({properties: ["openFile"]});
+    const { filePaths} = await dialog.showOpenDialog({
+    properties: ["openFile"],
+    filters: [{ name: "JSON Files", extensions: ["json"] }]
+  });
+
+  try{
+    const stringFileContent = await fs.readFile(filePaths[0], "utf-8");
+    const jsonFileContent = JSON.parse(stringFileContent);
+    console.log(jsonFileContent);
+
+    /*if(jsonFileContent.metadata.adminID == 123456798){
+        const newAdmin = new Admin(jsonFileContent);
+        newAdmin.ReadConfig();
+    }
+    else{
+        const newUser = new User(jsonFileContent);
+        newUser.ReadConfig();
+    }*/
+
+  }
+  catch(err){
+    console.log("ERROR in selecting file:", err);
+  }
+
 }
 
 // currently just saving date
@@ -15,6 +39,7 @@ async function SaveProject() {
     });
 
     if(filePath){
+        //JSON content
         const data = {
             metadata: {
                 //uniqueID for debuging
